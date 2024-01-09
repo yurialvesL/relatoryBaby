@@ -1,0 +1,17 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+.BtnConfirm{
+    margin-top: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+// :host ::ng-deep .p-button{
+//     font-size:40px;  //your font size here
+//     width: auto;
+// }

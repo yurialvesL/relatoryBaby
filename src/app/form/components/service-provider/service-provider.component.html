@@ -1,0 +1,33 @@
+<div class="service-provider-main">
+    <h3 class="service-provider-tittle">Prestador de serviço</h3>
+    <div class="service-provider">
+        <div class="field">
+            <label>Nome:</label>
+            <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="name" />
+        </div>
+        <div class="field">
+            <label>CPF:</label>
+            <p-inputMask class="p-inputtext-sm" mask="999.999.999-99" [(ngModel)]="cpf"></p-inputMask>
+        </div>
+        <div class="field">
+            <label>CNPJ:</label>
+            <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" [(ngModel)]="cnpj"></p-inputMask>
+        </div>
+        <div class="field">
+            <label>CEP:</label>
+            <p-inputMask class="p-inputtext-sm" mask="99999-999" [(ngModel)]="cep"></p-inputMask>
+        </div>
+        
+        <div class="field">
+            <label>Endereço:</label>
+            <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="address" />
+        </div>
+
+        <div class="field">
+            <label>Telefone:</label>
+            <p-inputMask class="p-inputtext-sm" mask="(99) 99999-9999" [(ngModel)]="phone"></p-inputMask>
+        </div>
+        
+    </div>
+</div>
+

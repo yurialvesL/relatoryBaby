@@ -29,9 +29,12 @@
               "src/favicon.ico",
               "src/assets"
             ],
+      
             "styles": [
-              "src/styles.scss"
-            ],
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
+              
+          ],
             "scripts": []
           },
           "configurations": {
@@ -65,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "relatoryBaby:build:production"
+              "buildTarget": "relatoryBaby:build:production"
             },
             "development": {
-              "browserTarget": "relatoryBaby:build:development"
+              "buildTarget": "relatoryBaby:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "relatoryBaby:build"
+            "buildTarget": "relatoryBaby:build"
           }
         },
         "test": {

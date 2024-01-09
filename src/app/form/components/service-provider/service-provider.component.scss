@@ -1,0 +1,77 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+
+.service-provider{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 0.625rem;
+
+
+    background-color: #666888;
+    margin: 0 auto;
+    height: auto;
+    width: 100rem;
+    
+    color: white;
+    align-items: center;
+    border-radius: 0.5rem;
+
+}
+
+@media screen and (max-width: 768px) {
+    .service-provider{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 0.7rem;
+    
+    
+        background-color: #4d4e66;
+        margin: 0 auto;
+        height: auto;
+        width: auto;
+        
+        color: white;
+        align-items: center;
+        border-radius: 0.5rem;
+    
+    }
+
+    .field{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+}
+
+.service-provider-tittle{
+    text-align: center;
+    color: white;
+}
+
+.field{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+

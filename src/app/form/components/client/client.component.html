@@ -1,0 +1,23 @@
+<div class="client-main">
+    <h3 class="client-tittle">Cliente</h3>
+    <div class="client-content">
+        <div class="field">
+            <label>Nome:</label>
+            <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="name" />
+        </div>
+        <div class="field">
+            <label>CNPJ:</label>
+            <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" [(ngModel)]="cnpj"></p-inputMask>
+        </div>
+        <div class="field">
+            <label>Endereço:</label>
+            <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="address" />
+        </div>
+
+        <div class="field">
+            <label>Telefone:</label>
+            <p-inputMask class="p-inputtext-sm" mask="(99) 99999-9999" [(ngModel)]="phone"></p-inputMask>
+        </div>
+        
+    </div>
+</div>
