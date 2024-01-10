@@ -18,10 +18,10 @@
                 <label>Cor:</label>
                 <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="cor" />
             </div>
-            <div class="BtnAdd"><p-button size="small" label="Adicionar" [rounded]="true"></p-button> </div>
+            <div class="BtnAdd"><p-button size="small" label="Adicionar" [rounded]="true" (click)="addTable()"></p-button> </div>
         </div>
         <div class="table">
-            <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+            <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Tipo</th>
@@ -38,7 +38,30 @@
                         <td>{{ product.cor }}</td>
                     </tr>
                 </ng-template>
+                <ng-template pTemplate="paginatorleft">
+                    <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                    <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                </ng-template>
             </p-table>
+        </div>
+        <div class="totals">
+            <div class="totalValue">
+                <label>Quantidade total:</label>
+                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="quantityTotal"  [disabled]="true"/>
+            </div>
+
+            <div class="totalValue">
+                <label>Valor unitário:</label>
+                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"  [disabled]="true"/>
+            </div>
+
+            <div class="totalValue">
+                <label>Total:</label>
+                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"  [disabled]="true"/>
+            </div>
+            
         </div>
     </div>
 </div>

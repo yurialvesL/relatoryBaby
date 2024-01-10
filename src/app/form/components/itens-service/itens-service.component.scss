@@ -48,3 +48,20 @@
 .table{
     margin-top: .9375rem;
 }
+
+.totals{
+    margin-top: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: .625rem;
+}
+
+.totalValue{
+    color: white;
+    font-weight: bold;
+    font-size: 1.5625rem;
+    padding-top: .1875rem;
+}

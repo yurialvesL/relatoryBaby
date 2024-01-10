@@ -3,4 +3,4 @@ export interface BabyRomper{
     tamanho: string,
     quantidade: number,
     cor: string,
-}
+}   

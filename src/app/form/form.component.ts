@@ -11,7 +11,7 @@ export class FormComponent {
   value:string ='';
   endereco: string = '';
   phone: string= '';
-  generateRelatory: boolean = false;
+  generateRelatory: boolean = true;
 
 
 
