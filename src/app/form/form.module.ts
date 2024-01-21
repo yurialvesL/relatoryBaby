@@ -13,11 +13,14 @@ import { ServiceProviderComponent } from './components/service-provider/service-
 import { ClientComponent } from './components/client/client.component';
 import { ItensServiceComponent } from './components/itens-service/itens-service.component';
 import { TableModule } from 'primeng/table';
-
+import { HeaderComponent } from './components/header/header.component';
+import { PanelModule } from 'primeng/panel';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 
 @NgModule({
-  declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent],
+  declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent,HeaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -25,7 +28,10 @@ import { TableModule } from 'primeng/table';
     BrowserAnimationsModule,
     ButtonModule,InputTextModule,
     InputMaskModule,
-    TableModule
+    TableModule,
+    PanelModule,
+    DropdownModule,
+    InputNumberModule
   ],
   exports:[
     FormComponent,

@@ -1,6 +1,6 @@
 export interface BabyRomper{
-    tipo: string,
-    tamanho: string,
-    quantidade: number,
-    cor: string,
+    tipo: string | undefined,
+    tamanho: string | undefined,
+    quantidade: number | undefined,
+    cor: string | undefined,
 }   

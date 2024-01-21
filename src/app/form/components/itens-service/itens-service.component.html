@@ -1,67 +1,93 @@
 <div class="item-service-main">
-    <h3 class="item-service-tittle">Itens Serviço</h3>
-    <div class="item-service-content">
-        <div class="baby-add">
-            <div class="field">
-                <label>Tipo:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="tipo" />
+    <p-panel header="Itens do serviço">
+        <div class="item-service-content">
+            <div class="baby-add">
+                <div class="field">
+
+                    <label>Tipo:</label>
+                    <p-dropdown [options]="types" [(ngModel)]="typeSelected" optionLabel="type" [showClear]="true"
+                        placeholder="Selecione o tipo"></p-dropdown>
+                </div>
+                <div class="field">
+                    <label>Tamanho:</label>
+                    <p-dropdown [options]="sizes" [(ngModel)]="sizeSelected" optionLabel="size" [showClear]="true"
+                        placeholder="Selecione o tamanho"></p-dropdown>
+                </div>
+                <div class="field">
+                    <label>Quantidade:</label>
+                    <p-inputNumber inputId="integeronly" placeholder="Digite a quantidade" [(ngModel)]="quantidade">
+                    </p-inputNumber>
+                </div>
+                <div class="field">
+                    <label>Cor:</label>
+                    <p-dropdown [options]="colors" [(ngModel)]="colorSelected" optionLabel="color" [showClear]="true"
+                        placeholder="Selecione a cor"></p-dropdown>
+                </div>
+                <div class="BtnAdd"><p-button size="small" label="Adicionar"
+                        (click)="addItem()"></p-button> </div>
+
             </div>
-            <div class="field">
-                <label>Tamanho:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="tamanho" />
-            </div>
-            <div class="field">
-                <label>Quatidade:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="quantidade" />
-            </div>
-            <div class="field">
-                <label>Cor:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="cor" />
-            </div>
-            <div class="BtnAdd"><p-button size="small" label="Adicionar" [rounded]="true" (click)="addTable()"></p-button> </div>
-        </div>
-        <div class="table">
-            <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Tipo</th>
-                        <th>Tamanho</th>
-                        <th>Quantidade</th>
-                        <th>Cor</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-product>
-                    <tr>
-                        <td>{{ product.tipo }}</td>
-                        <td>{{ product.tamanho }}</td>
-                        <td>{{ product.quantidade }}</td>
-                        <td>{{ product.cor }}</td>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="paginatorleft">
-                    <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-                </ng-template>
-                <ng-template pTemplate="paginatorright">
-                    <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
-                </ng-template>
-            </p-table>
-        </div>
-        <div class="totals">
-            <div class="totalValue">
-                <label>Quantidade total:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="quantityTotal"  [disabled]="true"/>
+            <div class="data-view">
+                <div class="table">
+                    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
+                        <ng-template pTemplate="caption">
+                            <div class="flex align-items-center justify-content-between">
+                                Itens adicionados
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Tamanho</th>
+                                <th>Quantidade</th>
+                                <th>Cor</th>
+                                <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-product>
+                            <tr>
+
+                                <td>{{ product.tipo }}</td>
+                                <td>{{ product.tamanho }}</td>
+                                <td>{{ product.quantidade }}</td>
+                                <td>{{ product.cor }}</td>
+                                <td><p-button  size="small" label="X"  severity="danger"
+                                        (click)="removeItem(product)"></p-button></td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="paginatorleft">
+                            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+                        </ng-template>
+                        <ng-template pTemplate="paginatorright">
+                            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+                        </ng-template>
+                    </p-table>
+                </div>
+                <div class="totals-resume">
+                    <p-panel header="Resumo">
+                        <div class="totals">
+                            <div class="totalValue">
+                                <label>Quantidade total:</label>
+                                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="quantityTotal"
+                                    [disabled]="true" />
+                            </div>
+
+                            <div class="totalValue">
+                                <label>Valor unitário:</label>
+                                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"
+                                    [disabled]="true" />
+                            </div>
+
+                            <div class="totalValue">
+                                <label>Total:</label>
+                                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"
+                                    [disabled]="true" />
+                            </div>
+                        </div>
+                    </p-panel>
+                </div>
             </div>
 
-            <div class="totalValue">
-                <label>Valor unitário:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"  [disabled]="true"/>
-            </div>
-
-            <div class="totalValue">
-                <label>Total:</label>
-                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"  [disabled]="true"/>
-            </div>
-            
         </div>
-    </div>
+    </p-panel>
 </div>

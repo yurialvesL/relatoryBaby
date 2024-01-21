@@ -9,7 +9,10 @@ import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
 import { InputMaskModule } from 'primeng/inputmask';
 import { ServiceProviderComponent } from './form/components/service-provider/service-provider.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { FormModule } from './form/form.module';
+import { DropdownModule } from 'primeng/dropdown';
+import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
 
 @NgModule({
@@ -26,7 +29,12 @@ import { TableModule } from 'primeng/table';
     ButtonModule,InputTextModule,
     InputMaskModule,
     FormModule,
-    TableModule
+    TableModule,
+    PanelModule,
+    DropdownModule,
+    InputNumberModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

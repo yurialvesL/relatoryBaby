@@ -1,0 +1,9 @@
+@import './variables';
+@import './mixin';
+@import "primeicons/primeicons.css";
+
+
+
+.flex-center{
+    @include flex-center;
+}

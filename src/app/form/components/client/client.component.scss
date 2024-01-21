@@ -1,28 +1,18 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+@import '/src/sass/mixin';
 
-
-
-
-
+.client-main{
+    @include flex-center;
+    margin-top: .9375rem;
+}
 
 .client-content{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    flex-direction: row;
-    justify-content: center;
-
-    padding: 0.625rem;
-
-
-    background-color: #666888;
-    margin: 0 auto;
     height: auto;
     width: 100rem;
     
-    color: white;
+    color: black;
     align-items: center;
     border-radius: 0.5rem;
 
@@ -73,5 +63,11 @@
     gap: 0.5rem;
     flex-direction: column;
     justify-content: center;
+}
+
+.fields-order{
+    display: flex;
+    flex-direction: row;
+    gap: .625rem;
 }
 

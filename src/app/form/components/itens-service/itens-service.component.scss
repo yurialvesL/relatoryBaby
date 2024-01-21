@@ -1,26 +1,35 @@
-.baby-add{
+@import '/src/sass/mixin';
+@import "primeicons/primeicons.css";
+
+
+.item-service-main{
+
+    @include flex-center;
+    margin-top: .9375rem;
+
+}
+
+.baby-add {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
     gap: 0.5rem;
 }
 
 
-.item-service-content{
+.item-service-content {
     padding: 0.625rem;
     border-radius: 0.5rem;
 
-    background-color: #666888;
+
     margin: 0 auto;
 
     height: auto;
     width: 100rem;
 }
 
-.field{
+.field {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -29,39 +38,48 @@
 }
 
 
-.field label{
-    color: white;
+.field label {
+    color: black;
 }
 
-
-.item-service-tittle{
-    text-align: center;
-    color: white;
-}
-
-
-.BtnAdd{
+.BtnAdd {
     margin-top: 1.875rem;
 }
 
 
-.table{
+.table {
     margin-top: .9375rem;
+    
 }
 
-.totals{
+
+.data-view{
+    display: flex;
+    flex-direction: row;
+    gap: .9375rem;
+
+}
+
+.totals-resume{
+ margin-top: .9375rem;
+ width: 100%;
+}
+
+.totals {
     margin-top: 1.875rem;
     display: flex;
     flex-direction: row;
-    align-content: flex-end;
-    justify-content: flex-end;
+    align-content:center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: .625rem;
 }
 
-.totalValue{
-    color: white;
+.totalValue {
+    color: black;
     font-weight: bold;
-    font-size: 1.5625rem;
     padding-top: .1875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
