@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BabyRomper } from '../../models/baby-romper-model';
 import { TypeBabyRomper } from '../../models/type-baby-romper';
 import { SizeBabyRomper } from '../../models/size-baby-romper';
@@ -11,7 +11,8 @@ import { ColorBabyRomper } from '../../models/color-baby-romper';
 })
 export class ItensServiceComponent implements OnInit {
   products: Array<BabyRomper> = [];
-  babyRomperTest: BabyRomper = { tipo: 'Body', tamanho: 'M', cor: 'azul', quantidade: 200 };
+  babyRomperToSend: BabyRomper | undefined;
+  babyRomperTest: BabyRomper = { tipo: 'Body', tamanho: 'M', cor: 'azul', quantidade: 200, unitaryValue: 0};
   types: Array<TypeBabyRomper> = [];
   typeSelected: TypeBabyRomper | undefined;
   sizes: Array<SizeBabyRomper> = [];
@@ -19,16 +20,13 @@ export class ItensServiceComponent implements OnInit {
   colors: Array<ColorBabyRomper> = [];
   colorSelected: ColorBabyRomper | undefined;
 
-  tamanho: string = '';
-  tipo: string = '';
-  quantidade: number | undefined;
-  cor: string = '';
-  total: number = 0;
-  unitValue: number = 0;
-  quantityTotal: number = 0;
+  tamanho: string | undefined;
+  tipo: string | undefined;
+  quantity: number | undefined;
+  cor: string | undefined;
 
   constructor() {
-    this.products.push(this.babyRomperTest);
+    // this.products.push(this.babyRomperTest);
   }
 
   ngOnInit(): void {
@@ -61,20 +59,44 @@ export class ItensServiceComponent implements OnInit {
     ]
   }
 
-  addItem(): void {
-    const babyRomper = { tipo: this.typeSelected?.type, tamanho: this.sizeSelected?.size, quantidade: this.quantidade, cor: this.colorSelected?.color };
-    this.products.push(babyRomper);
+
+  blockAdd(){
+    let block = true;
+    if(this.typeSelected !== undefined &&  this.sizeSelected !== undefined && this.quantity !== undefined  &&  this.colorSelected !==undefined)
+      block =  false;
+    return block;
+  }
+
+  addItem(){
+    let babyRomper: BabyRomper = {
+      tipo: this.typeSelected?.type, tamanho: this.sizeSelected?.size, quantidade: this.quantity, cor: this.colorSelected?.color,
+      unitaryValue: 0
+    };
+    this.addUnitaryValue(babyRomper);
+    this.babyRomperToSend = babyRomper;
     this.clearFields();
+
   }
 
-  removeItem(product: any): void {
-    this.products.pop();
+  addUnitaryValue(product: BabyRomper){
+    switch(product.tipo){
+      case 'Body':
+        product.unitaryValue = 0.3;
+        break;
+      case 'Macacão curto':
+        product.unitaryValue = 0.4;
+        break;
+      case 'Macacão Longo':
+        product.unitaryValue = 0.4;
+    }
   }
 
+  
   clearFields(): void {
+
     this.typeSelected = undefined;
     this.sizeSelected = undefined;
-    this.quantidade = undefined;
+    this.quantity = undefined;
     this.colorSelected = undefined;
   }
 

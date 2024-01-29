@@ -3,4 +3,5 @@ export interface BabyRomper{
     tamanho: string | undefined,
     quantidade: number | undefined,
     cor: string | undefined,
+    unitaryValue: number | undefined
 }   

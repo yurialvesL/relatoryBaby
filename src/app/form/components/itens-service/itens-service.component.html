@@ -15,7 +15,7 @@
                 </div>
                 <div class="field">
                     <label>Quantidade:</label>
-                    <p-inputNumber inputId="integeronly" placeholder="Digite a quantidade" [(ngModel)]="quantidade">
+                    <p-inputNumber inputId="integeronly" placeholder="Digite a quantidade" [(ngModel)]="quantity">
                     </p-inputNumber>
                 </div>
                 <div class="field">
@@ -23,71 +23,13 @@
                     <p-dropdown [options]="colors" [(ngModel)]="colorSelected" optionLabel="color" [showClear]="true"
                         placeholder="Selecione a cor"></p-dropdown>
                 </div>
-                <div class="BtnAdd"><p-button size="small" label="Adicionar"
+                <div class="BtnAdd"><p-button size="small" label="Adicionar" [disabled]="blockAdd()"
                         (click)="addItem()"></p-button> </div>
 
             </div>
-            <div class="data-view">
-                <div class="table">
-                    <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }" [paginator]="true" [rows]="5">
-                        <ng-template pTemplate="caption">
-                            <div class="flex align-items-center justify-content-between">
-                                Itens adicionados
-                            </div>
-                        </ng-template>
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>Tipo</th>
-                                <th>Tamanho</th>
-                                <th>Quantidade</th>
-                                <th>Cor</th>
-                                <th></th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-product>
-                            <tr>
+            <app-table-items [product]="babyRomperToSend">
 
-                                <td>{{ product.tipo }}</td>
-                                <td>{{ product.tamanho }}</td>
-                                <td>{{ product.quantidade }}</td>
-                                <td>{{ product.cor }}</td>
-                                <td><p-button  size="small" label="X"  severity="danger"
-                                        (click)="removeItem(product)"></p-button></td>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="paginatorleft">
-                            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-                        </ng-template>
-                        <ng-template pTemplate="paginatorright">
-                            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
-                        </ng-template>
-                    </p-table>
-                </div>
-                <div class="totals-resume">
-                    <p-panel header="Resumo">
-                        <div class="totals">
-                            <div class="totalValue">
-                                <label>Quantidade total:</label>
-                                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="quantityTotal"
-                                    [disabled]="true" />
-                            </div>
-
-                            <div class="totalValue">
-                                <label>Valor unitário:</label>
-                                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"
-                                    [disabled]="true" />
-                            </div>
-
-                            <div class="totalValue">
-                                <label>Total:</label>
-                                <input pInputText type="text" class="p-inputtext-sm" [(ngModel)]="total"
-                                    [disabled]="true" />
-                            </div>
-                        </div>
-                    </p-panel>
-                </div>
-            </div>
-
+            </app-table-items>
         </div>
     </p-panel>
 </div>

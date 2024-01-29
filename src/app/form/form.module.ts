@@ -17,10 +17,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { PanelModule } from 'primeng/panel';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { TableItemsComponent } from './components/table-items/table-items.component';
 
 
 @NgModule({
-  declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent,HeaderComponent],
+  declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent,HeaderComponent,TableItemsComponent],
   imports: [
     CommonModule,
     FormsModule,

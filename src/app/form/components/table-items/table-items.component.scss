@@ -1,0 +1,51 @@
+@import '/src/sass/mixin';
+@import "primeicons/primeicons.css";
+
+
+
+
+
+.Has-no-data{
+    margin-top: 1.25rem;
+    @include flex-column;
+}
+
+
+.data-view{
+    display: flex;
+    flex-direction: row;
+    gap: .9375rem;
+
+}
+
+.table {
+    margin-top: .9375rem;
+    
+}
+
+
+
+
+.totals-resume{
+ margin-top: .9375rem;
+ width: 100%;
+}
+
+.totals {
+    margin-top: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    align-content:center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .625rem;
+}
+
+.totalValue {
+    color: black;
+    font-weight: bold;
+    padding-top: .1875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}

@@ -47,39 +47,3 @@
 }
 
 
-.table {
-    margin-top: .9375rem;
-    
-}
-
-
-.data-view{
-    display: flex;
-    flex-direction: row;
-    gap: .9375rem;
-
-}
-
-.totals-resume{
- margin-top: .9375rem;
- width: 100%;
-}
-
-.totals {
-    margin-top: 1.875rem;
-    display: flex;
-    flex-direction: row;
-    align-content:center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: .625rem;
-}
-
-.totalValue {
-    color: black;
-    font-weight: bold;
-    padding-top: .1875rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
