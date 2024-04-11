@@ -1,0 +1,7 @@
+@import '/src/sass/mixin';
+@import "primeicons/primeicons.css";
+
+.Has-no-data{
+    margin-top: 1.25rem;
+    @include flex-column;
+}

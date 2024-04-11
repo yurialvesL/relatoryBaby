@@ -1,64 +1,90 @@
-import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output,OnInit, OnDestroy } from '@angular/core';
 import { BabyRomper } from '../../models/baby-romper-model';
+import { TotalsToSend } from '../../models/totals-to-send';
+import { DataService } from '../../services/data-service.service';
+import { Subject} from 'rxjs';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-table-items',
   templateUrl: './table-items.component.html',
   styleUrl: './table-items.component.scss'
 })
-export class TableItemsComponent implements OnChanges {
+export class TableItemsComponent implements OnChanges, OnInit, OnDestroy {
 
-
-  @Input() product: BabyRomper | undefined;
-  @Output()
+  @Output() close = new EventEmitter();
   products: Array<BabyRomper> = [];
   hasValue: boolean = false;
   totalQuantity: number = 0;
   total: number = 0;
   totalUnitaryValue: number = 0;
+  totalFinal: number = 0;
+  isButtonUp: boolean = false;
+  isPacked: boolean = false;
+  updateTotals: boolean = false;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    if (this.product !== undefined)
-      this.addItem(this.product);
+
+  unsubscribe = new Subject<void>();
+  
+  constructor(private dataService: DataService){
+
+  }
+  ngOnInit(): void {
+    this.dataService.babyrompers.subscribe({
+      next:(value) => {
+         this.products = value;
+      }
+    })
+  }
+
+  
+
+  ngOnDestroy(): void {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+}
+
+  ngOnChanges(): void {
+    
     this.checkValue();
-    this.calculateTotal();
-
   }
 
   checkValue() {
-    if (this.products.length >= 1) {
-      this.hasValue = true;
-    }
-    else {
-      this.hasValue = false;
-    }
+    if (this.products.length < 1) 
+       this.close.emit(false);
+
   }
 
   addItem(product: BabyRomper): void {
-    const babyRomper = { tipo: product.tipo, tamanho: product.tamanho, quantidade: product.quantidade, cor: product.cor, unitaryValue: product.unitaryValue };
+    const babyRomper = { id:this.generateId(),tipo: product?.tipo, tamanho: product?.tamanho, quantidade: product?.quantidade, cor: product?.cor, unitaryValue: product?.unitaryValue };
     this.products.push(babyRomper);
+    
   }
 
   removeItem(product: BabyRomper): void {
-    this.products = this.products.filter((p) => p !== product)
-    this.calculateTotal();
+    console.log("deletando ele:",product);
+    this.products = this.products.filter((p) => p !== product);
+    this.dataService.deleteBabyRomper(product);
     this.checkValue();
   }
-
+  
   calculateTotal() {
     let totalgeneral: number =  0;
     let totalQuantityGeneral: number = 0;
+    let totalsToSendVLO: TotalsToSend= {totalQuantity: 0, total:0}
+
     if (this.products.length >= 1) {
       totalQuantityGeneral += this.getTotalQuantity();
-      this.totalQuantity = totalQuantityGeneral;
-      
+      totalsToSendVLO.totalQuantity = totalQuantityGeneral;
+  
       totalgeneral += this.calculateTotalBody();
       totalgeneral += this.calculateTotalShort();
       totalgeneral += this.calculateTotalLong();
       this.total = totalgeneral;
-
     }
+    totalsToSendVLO.total = this.total; 
+       
+      
   }
 
   calculateTotalBody(): number {
@@ -112,6 +138,10 @@ export class TableItemsComponent implements OnChanges {
     });
 
     return totalQuantity;
+  }
+
+  private generateId(): string{
+    return Guid.create().toString();
   }
 
 }

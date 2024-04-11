@@ -25,11 +25,14 @@
                 </div>
                 <div class="BtnAdd"><p-button size="small" label="Adicionar" [disabled]="blockAdd()"
                         (click)="addItem()"></p-button> </div>
-
             </div>
-            <app-table-items [product]="babyRomperToSend">
-
-            </app-table-items>
+            <div *ngIf="hasValue" class="tableAndResume">
+                <app-table-items  (close)="checkValue($event)"></app-table-items> 
+                <app-resume></app-resume>
+            </div>
+            <div *ngIf="!hasValue">
+                <app-no-has-value></app-no-has-value>
+            </div>
         </div>
     </p-panel>
 </div>

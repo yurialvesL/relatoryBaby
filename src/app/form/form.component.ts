@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { RelatoryModel } from './models/relatory-model';
+import { ClientModel } from './models/client-model';
+import { ServiceProvider } from './models/service-provider';
 
 
 
@@ -8,14 +11,38 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-  value:string ='';
-  endereco: string = '';
-  phone: string= '';
-  generateRelatory: boolean = true;
+  relatorio: RelatoryModel | null = null;
+  blockGenerateRelatory: boolean = false;
+  client: ClientModel | undefined = undefined;
+  openModal:boolean = false;
 
 
 
-  teste():void{
-    console.log("oi");
+
+
+  getClient(client: ClientModel) {
+    console.log(client);
+    if (this.client !== null) {
+   
+
+    }
   }
+
+  generate(){
+    document.getElementsByClassName
+  }
+
+  getServiceProvider(serviceProvider:ServiceProvider){
+    console.log("prestador de serviço",serviceProvider)
+  }
+
+  openModalGenerate(){
+   
+      this.openModal = true;
+    
+    
+  }
+
+
+
 }

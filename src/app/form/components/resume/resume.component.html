@@ -1,0 +1,40 @@
+<div class="totals-resume">
+    <p-panel header="Resumo">
+        <div class="totals">
+            <div class="totalValue">
+                <label>Quantidade total:</label>
+                <!-- <p-inputMask mask="{{totalqtd}}" [(ngModel)]="totalqtd"></p-inputMask> -->
+                <input type="text" class="input" [(ngModel)]="totalqtd" disabled="true">                
+            </div>
+            
+            <div class="totalValue">
+                <label>Total:</label>
+                <!-- <p-inputMask mask="R$ {{total}}" [(ngModel)]="total" [disabled]="true"></p-inputMask> -->
+                <input type="text" class="input" [(ngModel)]="totalvalueFormated" disabled="true">
+                
+               
+            </div>
+
+            <div class="extraService">
+                <div class="extraService">
+                    <p-checkbox [(ngModel)]="isButtonUp" [binary]="true" inputId="buttonUp" (onChange)="addButtonUp()"></p-checkbox>
+                    
+                    <label for="buttonUp" class="ml-2">Abotoado</label>
+                    
+                </div>
+
+                <div class="extraService">
+                    <p-checkbox [(ngModel)]="isPacked" [binary]="true" inputId="packed" (onChange)="addPacked()"></p-checkbox>
+                    <label for="packed">Embalado</label>
+                    
+                </div>
+            </div>
+
+            <div class="totalValue">
+                <label>Total final:</label>
+                <!-- <p-inputMask mask="R$ {{totalFinal}}" [(ngModel)]="totalFinal" [disabled]="true"></p-inputMask> -->
+                <input type="text" class="input" [(ngModel)]="totalFinal" disabled="true">
+            </div>
+        </div>
+    </p-panel>
+</div>

@@ -18,10 +18,17 @@ import { PanelModule } from 'primeng/panel';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { TableItemsComponent } from './components/table-items/table-items.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ResumeComponent } from './components/resume/resume.component';
+import { TotalService } from './services/total-service.service';
+import { NoHasValueComponent } from './components/no-has-value/no-has-value.component';
+import { RelatoryGeneratedModalComponent } from './components/relatory-generated-modal/relatory-generated-modal.component';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
-  declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent,HeaderComponent,TableItemsComponent],
+  declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent,HeaderComponent,TableItemsComponent,ResumeComponent,NoHasValueComponent,RelatoryGeneratedModalComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -32,13 +39,19 @@ import { TableItemsComponent } from './components/table-items/table-items.compon
     TableModule,
     PanelModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    RadioButtonModule,
+    CheckboxModule,
+    DialogModule 
   ],
   exports:[
     FormComponent,
     ServiceProviderComponent,
     ClientComponent,
     ItensServiceComponent
+  ],
+  providers:[
+    TotalService
   ]
 })
 export class FormModule { }

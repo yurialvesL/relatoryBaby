@@ -46,4 +46,10 @@
     margin-top: 1.875rem;
 }
 
+.tableAndResume{
+  @include flex-start-stretch;
+  gap:10.373rem;
+
+}
+
 

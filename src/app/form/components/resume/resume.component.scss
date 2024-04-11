@@ -1,0 +1,66 @@
+@import '/src/sass/mixin';
+@import "primeicons/primeicons.css";
+
+
+
+.totals-resume {
+    margin-top: .9375rem;
+    width: 200%;
+}
+
+.totals {
+    margin-top: 1.875rem;
+    @include flex-column-center;
+    flex-wrap: wrap;
+    gap: .625rem;
+}
+
+.totalValue {
+    color: black;
+    font-weight: bold;
+    padding-top: .1875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.extraService {
+    @include flex-row-center;
+    gap:.5rem;
+
+}
+
+
+
+
+.input {
+    /* Propriedades gerais */
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  
+    /* Aparência */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    background-color: #fff;
+  
+    /* Foco */
+    &:focus {
+      border-color: #000;
+    }
+  
+    /* Desabilitado */
+    &:disabled {
+      opacity: 0.65;
+    }
+  }
+  
+  /* Placeholder */
+  
+  .input::placeholder {
+    color: #aaa;
+  }

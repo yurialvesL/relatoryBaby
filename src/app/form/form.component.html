@@ -1,13 +1,19 @@
 <app-header></app-header>
 
 <main class="main">
-    <app-service-provider></app-service-provider>
-    <app-client></app-client>
+    <app-service-provider (serviceProvider)="getServiceProvider($event)"></app-service-provider>
+    <app-client (client)="getClient($event)"></app-client>
     <app-itens-service></app-itens-service>
 
 
     <!-- <button pButton type="button" class="BtnConfirm">teste</button> -->
-    <div class="BtnConfirm" *ngIf="generateRelatory"><p-button size="large" label="Gerar Relatório"></p-button> </div>
+    <div class="BtnConfirm" ><p-button size="large" label="Gerar Relatório" [disabled]="blockGenerateRelatory" (onClick)="openModalGenerate()"></p-button> </div>
+
+    
+    <p-dialog header="Relatório" [(visible)]="this.openModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+        <div class="relatory"><app-relatory-generated-modal></app-relatory-generated-modal></div>
+        <p-button class="btn-pdf">Gerar PDF</p-button>
+    </p-dialog>
 
 
 </main>

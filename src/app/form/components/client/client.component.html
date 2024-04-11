@@ -6,22 +6,22 @@
                 <div class="field">
                     <label>Nome Completo:</label>
                     <input pInputText type="text" class="p-inputtext-sm" placeholder="Digite o nome completo"
-                        [(ngModel)]="name" />
+                        [(ngModel)]="name" (ngModelChange)="checkChanges()" />
                 </div>
                 <div class="field">
                     <label>Telefone:</label>
                     <p-inputMask class="p-inputtext-sm" mask="(99) 99999-9999" placeholder="DDD + Número"
-                        [(ngModel)]="phone"></p-inputMask>
+                        [(ngModel)]="phone"  (ngModelChange)="checkChanges()"></p-inputMask>
                 </div>
                 <div class="field">
                     <label>CNPJ:</label>
                     <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" placeholder="Digite apenas números"
-                        [(ngModel)]="cnpj"></p-inputMask>
+                        [(ngModel)]="cnpj" (ngModelChange)="checkChanges()"></p-inputMask>
                 </div>
                 <div class="field">
                     <label>Endereço:</label>
                     <input pInputText type="text" class="p-inputtext-sm" placeholder="Digite apenas números"
-                        [(ngModel)]="address" />
+                        [(ngModel)]="address" (ngModelChange)="checkChanges()" />
                 </div>
             </div>
         </div>

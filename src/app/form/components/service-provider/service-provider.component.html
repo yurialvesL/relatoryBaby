@@ -6,19 +6,19 @@
                 <div class="fields-order">
                     <div class="field">
                         <label>Nome Completo:</label>
-                        <input pInputText type="text" class="p-inputtext-sm" placeholder="Digite o nome completo" [(ngModel)]="name" />
+                        <input pInputText type="text" class="p-inputtext-sm" placeholder="Digite o nome completo" [(ngModel)]="name" (ngModelChange)="sendToFormComponent()"/>
                     </div>
                     <div class="field">
                         <label>Telefone:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="(99) 99999-9999" placeholder="DDD + Número" [(ngModel)]="phone"></p-inputMask>
+                        <p-inputMask class="p-inputtext-sm" mask="(99) 99999-9999" placeholder="DDD + Número" [(ngModel)]="phone" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
                     <div class="field">
                         <label>CPF:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="999.999.999-99" placeholder="Digite apenas números" [(ngModel)]="cpf"></p-inputMask>
+                        <p-inputMask class="p-inputtext-sm" mask="999.999.999-99" placeholder="Digite apenas números" [(ngModel)]="cpf" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
                     <div class="field">
                         <label>CNPJ:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" placeholder="Digite apenas números" [(ngModel)]="cnpj"></p-inputMask>
+                        <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" placeholder="Digite apenas números" [(ngModel)]="cnpj" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
                 </div>
             </div>
@@ -27,12 +27,11 @@
                 <div class="fields-order">
                     <div class="field">
                         <label>CEP:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="99999-999" placeholder="Digite apenas números" [(ngModel)]="cep"></p-inputMask>
+                        <p-inputMask class="p-inputtext-sm" mask="99999-999" placeholder="Digite apenas números" [(ngModel)]="cep" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
-
                     <div class="field">
                         <label>Endereço:</label>
-                        <input pInputText type="text" class="p-inputtext-sm" placeholder="Digite o endereço completo" [(ngModel)]="address" />
+                        <input pInputText type="text" class="p-inputtext-sm" placeholder="Digite o endereço completo" [(ngModel)]="address" (ngModelChange)="sendToFormComponent()" />
                     </div>
                 </div>
             </div>

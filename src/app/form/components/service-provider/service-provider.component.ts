@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { User } from '../../models/user-model';
+import { ServiceProvider } from '../../models/service-provider';
 
 
 @Component({
@@ -8,6 +9,8 @@ import { User } from '../../models/user-model';
   styleUrl: './service-provider.component.scss'
 })
 export class ServiceProviderComponent {
+
+  @Output() serviceProvider = new EventEmitter();
   user: User | undefined;
   name: string = '';
   cpf: string = '';
@@ -17,9 +20,9 @@ export class ServiceProviderComponent {
   cep: string = '';
   
 
+   sendToFormComponent() {
+    let serviceProviderToSend : ServiceProvider={ name: this.name, cnpj:this.cnpj, address:this.address, phone: this.phone, cep:this.cep, cpf: this.cpf}
+    this.serviceProvider.emit(serviceProviderToSend);
 
-
-
-
-
+  }
 }

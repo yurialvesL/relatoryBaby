@@ -3,6 +3,9 @@ import { BabyRomper } from '../../models/baby-romper-model';
 import { TypeBabyRomper } from '../../models/type-baby-romper';
 import { SizeBabyRomper } from '../../models/size-baby-romper';
 import { ColorBabyRomper } from '../../models/color-baby-romper';
+import { TotalsToSend } from '../../models/totals-to-send';
+import { DataService } from '../../services/data-service.service';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-itens-service',
@@ -10,9 +13,10 @@ import { ColorBabyRomper } from '../../models/color-baby-romper';
   styleUrl: './itens-service.component.scss'
 })
 export class ItensServiceComponent implements OnInit {
+
   products: Array<BabyRomper> = [];
   babyRomperToSend: BabyRomper | undefined;
-  babyRomperTest: BabyRomper = { tipo: 'Body', tamanho: 'M', cor: 'azul', quantidade: 200, unitaryValue: 0};
+  babyRomperTest: BabyRomper = { id: this.generateId(), tipo: 'Body', tamanho: 'M', cor: 'azul', quantidade: 200, unitaryValue: 0};
   types: Array<TypeBabyRomper> = [];
   typeSelected: TypeBabyRomper | undefined;
   sizes: Array<SizeBabyRomper> = [];
@@ -24,12 +28,18 @@ export class ItensServiceComponent implements OnInit {
   tipo: string | undefined;
   quantity: number | undefined;
   cor: string | undefined;
+  hasValue: Boolean =  false;
+  totalQuantity: number = 0;
+  total: number =0;
 
-  constructor() {
-    // this.products.push(this.babyRomperTest);
+  constructor(
+    private dataService: DataService
+  ) {
   }
 
   ngOnInit(): void {
+
+
     this.types = [
       {type: 'Body'},
       {type: 'Macacão curto'},
@@ -69,11 +79,13 @@ export class ItensServiceComponent implements OnInit {
 
   addItem(){
     let babyRomper: BabyRomper = {
+      id:this.generateId(),
       tipo: this.typeSelected?.type, tamanho: this.sizeSelected?.size, quantidade: this.quantity, cor: this.colorSelected?.color,
       unitaryValue: 0
     };
     this.addUnitaryValue(babyRomper);
-    this.babyRomperToSend = babyRomper;
+    this.dataService.setBabyRomper(babyRomper);
+    this.hasValue = true; 
     this.clearFields();
 
   }
@@ -90,14 +102,28 @@ export class ItensServiceComponent implements OnInit {
         product.unitaryValue = 0.4;
     }
   }
-
   
   clearFields(): void {
-
     this.typeSelected = undefined;
     this.sizeSelected = undefined;
     this.quantity = undefined;
     this.colorSelected = undefined;
+  }
+
+  checkValue(check: boolean){
+    if(check)
+      this.hasValue = true;
+    this.hasValue = false;
+
+  }
+
+  getTotals(values:TotalsToSend){
+    this.total = values.total;
+    this.totalQuantity = values.totalQuantity;
+  }
+
+  private generateId(): string{
+    return Guid.create().toString();
   }
 
 }
