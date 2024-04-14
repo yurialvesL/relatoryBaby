@@ -14,11 +14,11 @@
                     </div>
                     <div class="field">
                         <label>CPF:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="999.999.999-99" placeholder="Digite apenas números" [(ngModel)]="cpf" (ngModelChange)="sendToFormComponent()"></p-inputMask>
+                        <p-inputMask [ngClass]="validateCPF() ? 'p-inputtext-sm': 'ng-invalid ng-dirty p-inputtext-sm'" mask="999.999.999-99" placeholder="Digite apenas números" [(ngModel)]="cpf" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
                     <div class="field">
                         <label>CNPJ:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" placeholder="Digite apenas números" [(ngModel)]="cnpj" (ngModelChange)="sendToFormComponent()"></p-inputMask>
+                        <p-inputMask [ngClass]="validateCNPJ() ? 'p-inputtext-sm': 'ng-invalid ng-dirty p-inputtext-sm'" mask="99.999.999/9999-99" placeholder="Digite apenas números" [(ngModel)]="cnpj" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="fields-order">
                     <div class="field">
                         <label>CEP:</label>
-                        <p-inputMask class="p-inputtext-sm" mask="99999-999" placeholder="Digite apenas números" [(ngModel)]="cep" (ngModelChange)="sendToFormComponent()"></p-inputMask>
+                        <p-inputMask [ngClass]="validateCEP() ? 'p-inputtext-sm': 'ng-invalid ng-dirty p-inputtext-sm'" mask="99999-999" placeholder="Digite apenas números" [(ngModel)]="cep" (ngModelChange)="sendToFormComponent()"></p-inputMask>
                     </div>
                     <div class="field">
                         <label>Endereço:</label>

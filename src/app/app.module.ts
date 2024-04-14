@@ -13,6 +13,7 @@ import { FormModule } from './form/form.module';
 import { DropdownModule } from 'primeng/dropdown';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,13 @@ import { TableModule } from 'primeng/table';
     BrowserAnimationsModule,
     ButtonModule,InputTextModule,
     InputMaskModule,
+    SharedModule,
     FormModule,
     TableModule,
     PanelModule,
     DropdownModule,
     InputNumberModule,
-    DialogModule 
+    DialogModule,
     
     
   ],

@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnDestroy
 import { TotalService } from '../../services/total-service.service';
 import { DataService } from '../../services/data-service.service';
 import { Subject, takeUntil } from 'rxjs';
+import { ResumeTotalItens } from '../../models/resume-itens-totals';
 
 @Component({
   selector: 'app-resume',
@@ -9,6 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
   styleUrl: './resume.component.scss'
 })
 export class ResumeComponent implements OnInit, OnDestroy {
+
   isButtonUp: boolean = false;
   isPacked: boolean = false;
   totalqtd:number = 0;
@@ -34,28 +36,39 @@ export class ResumeComponent implements OnInit, OnDestroy {
         this.totalvalue = value.total;
         this.totalFinal = 'R$ '+value.total.toFixed(2);
         this.totalvalueFormated = "R$ "+value.total.toFixed(2);
+        this.sendResumeToForm();
       }
     });
+    
   }
 
   addButtonUp(): void {
     if (this.isButtonUp) {
       this.totalvalue += this.totalqtd * 0.2;
       this.totalFinal = 'R$ '+this.totalvalue.toFixed();
+      this.sendResumeToForm();
       return;
     }
     this.totalvalue -= this.totalqtd * 0.2;
     this.totalFinal = 'R$ '+this.totalvalue.toFixed(2);
+    this.sendResumeToForm();
   }
 
   addPacked(): void {
     if (this.isPacked) {
       this.totalvalue += this.totalqtd * 0.2;
       this.totalFinal = 'R$ '+this.totalvalue.toFixed(2);
+      this.sendResumeToForm();
       return;
     }
     this.totalvalue -= this.totalqtd * 0.2;
     this.totalFinal = 'R$ '+this.totalvalue.toFixed(2);
+    this.sendResumeToForm();
+  }
+
+  sendResumeToForm(){
+    let resumeToSend: ResumeTotalItens = {quantityTotal: this.totalqtd, totalMonetary: this.totalvalue, totalFinal: this.totalvalue, isButtonUp: this.isButtonUp, isPacked: this.isPacked}
+    this.dataService.setResume(resumeToSend);
 
   }
 

@@ -28,7 +28,7 @@
             </div>
             <div *ngIf="hasValue" class="tableAndResume">
                 <app-table-items  (close)="checkValue($event)"></app-table-items> 
-                <app-resume></app-resume>
+                <app-resume  ></app-resume>
             </div>
             <div *ngIf="!hasValue">
                 <app-no-has-value></app-no-has-value>

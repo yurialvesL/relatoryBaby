@@ -15,8 +15,15 @@
                 </div>
                 <div class="field">
                     <label>CNPJ:</label>
-                    <p-inputMask class="p-inputtext-sm" mask="99.999.999/9999-99" placeholder="Digite apenas números"
+                    <p-inputMask  [ngClass]="validateCNPJ() ? 'p-inputtext-sm': 'ng-invalid ng-dirty p-inputtext-sm'" mask="99.999.999/9999-99" placeholder="Digite apenas números"
                         [(ngModel)]="cnpj" (ngModelChange)="checkChanges()"></p-inputMask>
+
+                </div>
+                <div class="field">
+                    <label>CEP:</label>
+                    <p-inputMask  [ngClass]="validateCEP() ? 'p-inputtext-sm': 'ng-invalid ng-dirty p-inputtext-sm'" mask="99999-999" placeholder="Digite apenas números"
+                        [(ngModel)]="cep" (ngModelChange)="checkChanges()"></p-inputMask>
+                    
                 </div>
                 <div class="field">
                     <label>Endereço:</label>

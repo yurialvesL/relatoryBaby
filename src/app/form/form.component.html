@@ -11,8 +11,8 @@
 
     
     <p-dialog header="Relatório" [(visible)]="this.openModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
-        <div class="relatory"><app-relatory-generated-modal></app-relatory-generated-modal></div>
-        <p-button class="btn-pdf">Gerar PDF</p-button>
+        <div class="relatory"><app-relatory-generated-modal [relatorio]="this.relatorio"></app-relatory-generated-modal></div>
+        <p-button class="btn-pdf" (onClick)="generatePDF()">Gerar PDF</p-button>
     </p-dialog>
 
 

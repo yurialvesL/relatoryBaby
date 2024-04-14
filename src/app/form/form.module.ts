@@ -25,12 +25,15 @@ import { TotalService } from './services/total-service.service';
 import { NoHasValueComponent } from './components/no-has-value/no-has-value.component';
 import { RelatoryGeneratedModalComponent } from './components/relatory-generated-modal/relatory-generated-modal.component';
 import { DialogModule } from 'primeng/dialog';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
   declarations: [FormComponent,ServiceProviderComponent,ClientComponent,ItensServiceComponent,HeaderComponent,TableItemsComponent,ResumeComponent,NoHasValueComponent,RelatoryGeneratedModalComponent],
   imports: [
     CommonModule,
+    SharedModule,
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -42,7 +45,8 @@ import { DialogModule } from 'primeng/dialog';
     InputNumberModule,
     RadioButtonModule,
     CheckboxModule,
-    DialogModule 
+    DialogModule,
+    
   ],
   exports:[
     FormComponent,
